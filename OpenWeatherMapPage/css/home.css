@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul:empty {
+    display: none;
+}
+
+span {
+    margin-top: 4px;
+}

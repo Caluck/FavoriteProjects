@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My Weather</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+    <div class="container" id="div-main">
+        <h1>Weather Page</h1>
+        <hr />
+        <!-- Errors -->
+        <ul id="errors" style="margin-top: 5px; margin-bottom: 15px"></ul>
+        <!-- Form -->
+        <div id="form" class="row form-group">
+            <!-- Zipcode -->
+            <div class="offset-md-3">
+                <label for="zipcode" class="col-form-label">
+                    Zipcode:
+                </label>
+            </div>
+            <div class="col-md-2">
+                <input id="zipcode" class="form-control" type="text" placeholder="Enter Zipcode" />
+            </div>
+
+            <!-- Units -->
+            <div>
+                <label for="units" class="col-form-label">
+                    Units:
+                </label>
+            </div>
+            <div class="col-md-2">
+                <select id="units" class="form-control">
+                    <option>Imperial</option>
+                    <option>Metric</option>
+                </select>
+            </div>
+
+            <!-- Get Weather -->
+            <div class="col-md-2">
+                <button id="submit" class="btn btn-primary" type="button">Get Weather</button>
+            </div>
+        </div>
+        <!-- Content -->
+        <div id="content" style="display: none">
+            <!-- Current Conditions -->
+            <div id="current">
+                <hr />
+                <h2 id="city">Current Conditions in City</h2>
+                <div class="col-md-6 row">
+                    <div class="col-md-6 row">
+                        <!-- Icon -->
+                        <img class="col-md-6" id="current-icon" src="https://openweathermap.org/img/wn/04n@2x.png" />
+                        <div class="col-md-6 my-auto">
+                            <!-- Main -->
+                            <div id="current-main" class="row font-weight-bold">
+                                Main
+                            </div>
+                            <!-- Description -->
+                            <div id="current-description" class="row font-italic">
+                                Description
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset-md-3 justify-content-center my-auto">
+                        <!-- Temperture -->
+                        <div class="row">
+                            <div>Temperture:</div>
+                            <div id="current-temperture" class="font-weight-light" style="margin-left:7px"></div>
+                        </div>
+                        <!-- Humidity -->
+                        <div class="row">
+                            <div>Humidity:</div>
+                            <div id="current-humidity" class="font-weight-light" style="margin-left:7px"></div>
+                        </div>
+                        <!-- Wind -->
+                        <div class="row">
+                            <div>Wind:</div>
+                            <div id="current-wind" class="font-weight-light" style="margin-left:7px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Five Day Forecast -->
+            <div id="fiveday">
+                <hr />
+                <h2>Five Day Forecast</h2>
+                <div class="row" style="margin-top:15px">
+                    <!-- Day 1 -->
+                    <div class="col-md-2">
+                        <!-- Date -->
+                        <div id="day0-date" class="row justify-content-center">
+                            Month Day
+                        </div>
+                        <div class="row">
+                            <!-- Icon -->
+                            <div class="offset-md-1 col-md-3">
+                                <img id="day0-icon" src="https://openweathermap.org/img/wn/04n.png" />
+                            </div>
+                            <!-- Weather -->
+                            <div id="day0-description" class="offset-md-1 my-auto font-italic">
+                                Description
+                            </div>
+                        </div>
+                        <!-- High -->
+                        <div class="row">
+                            <div class="offset-md-2 col-md-1 font-weight-light">High</div>
+                            <span id="day0-high" class="offset-md-2 badge badge-warning">00.00 C</span>
+                        </div>
+                        <!-- Low -->
+                        <div class="row" style="margin-top:5px">
+                            <div class="offset-md-2 col-md-1 font-weight-light">Low</div>
+                            <span id="day0-low" class="offset-md-2 badge badge-primary">00.00 C</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="col-md-2">
+                        <!-- Date -->
+                        <div id="day1-date" class="row justify-content-center">
+                            Month Day
+                        </div>
+                        <div class="row">
+                            <!-- Icon -->
+                            <div class="offset-md-1 col-md-3">
+                                <img id="day1-icon" src="https://openweathermap.org/img/wn/04n.png" />
+                            </div>
+                            <!-- Weather -->
+                            <div id="day1-description" class="offset-md-1 my-auto font-italic">
+                                Description
+                            </div>
+                        </div>
+                        <!-- High -->
+                        <div class="row">
+                            <div class="offset-md-2 col-md-1 font-weight-light">High</div>
+                            <span id="day1-high" class="offset-md-2 badge badge-warning">00.00 C</span>
+                        </div>
+                        <!-- Low -->
+                        <div class="row" style="margin-top:5px">
+                            <div class="offset-md-2 col-md-1 font-weight-light">Low</div>
+                            <span id="day1-low" class="offset-md-2 badge badge-primary">00.00 C</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="col-md-2">
+                        <!-- Date -->
+                        <div id="day2-date" class="row justify-content-center">
+                            Month Day
+                        </div>
+                        <div class="row">
+                            <!-- Icon -->
+                            <div class="offset-md-1 col-md-3">
+                                <img id="day2-icon" src="https://openweathermap.org/img/wn/04n.png" />
+                            </div>
+                            <!-- Weather -->
+                            <div id="day2-description" class="offset-md-1 my-auto font-italic">
+                                Description
+                            </div>
+                        </div>
+                        <!-- High -->
+                        <div class="row">
+                            <div class="offset-md-2 col-md-1 font-weight-light">High</div>
+                            <span id="day2-high" class="offset-md-2 badge badge-warning">00.00 C</span>
+                        </div>
+                        <!-- Low -->
+                        <div class="row" style="margin-top:5px">
+                            <div class="offset-md-2 col-md-1 font-weight-light">Low</div>
+                            <span id="day2-low" class="offset-md-2 badge badge-primary">00.00 C</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="col-md-2">
+                        <!-- Date -->
+                        <div id="day3-date" class="row justify-content-center">
+                            Month Day
+                        </div>
+                        <div class="row">
+                            <!-- Icon -->
+                            <div class="offset-md-1 col-md-3">
+                                <img  id="day3-icon" src="https://openweathermap.org/img/wn/04n.png" />
+                            </div>
+                            <!-- Weather -->
+                            <div id="day3-description" class="offset-md-1 my-auto font-italic">
+                                Description
+                            </div>
+                        </div>
+                        <!-- High -->
+                        <div class="row">
+                            <div class="offset-md-2 col-md-1 font-weight-light">High</div>
+                            <span id="day3-high" class="offset-md-2 badge badge-warning">00.00 C</span>
+                        </div>
+                        <!-- Low -->
+                        <div class="row" style="margin-top:5px">
+                            <div class="offset-md-2 col-md-1 font-weight-light">Low</div>
+                            <span id="day3-low" class="offset-md-2 badge badge-primary">00.00 C</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="col-md-2">
+                        <!-- Date -->
+                        <div id="day4-date" class="row justify-content-center">
+                            Month Day
+                        </div>
+                        <div class="row">
+                            <!-- Icon -->
+                            <div class="offset-md-1 col-md-3">
+                                <img id="day4-icon" src="https://openweathermap.org/img/wn/04n.png" />
+                            </div>
+                            <!-- Weather -->
+                            <div id="day4-description" class="offset-md-1 my-auto font-italic">
+                                Description
+                            </div>
+                        </div>
+                        <!-- High -->
+                        <div class="row">
+                            <div class="offset-md-2 col-md-1 font-weight-light">High</div>
+                            <span id="day4-high" class="offset-md-2 badge badge-warning">00.00 C</span>
+                        </div>
+                        <!-- Low -->
+                        <div class="row" style="margin-top:5px">
+                            <div class="offset-md-2 col-md-1 font-weight-light">Low</div>
+                            <span id="day4-low" class="offset-md-2 badge badge-primary">00.00 C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
